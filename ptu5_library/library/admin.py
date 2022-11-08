@@ -18,6 +18,8 @@ class BookInstanceAdmin(admin.ModelAdmin):
     list_display = ('unique_id', 'book', 'status', 'due_back')
     list_filter = ('status', 'due_back')
     readonly_fields = ('unique_id', )
+    search_fields = ('unique_id', 'book__title', 'book__author__last_name__exact')
+    list_editable = ('status', 'due_back')
 
     fieldsets = (
         ('General', {'fields': ('unique_id', 'book')}),
@@ -26,7 +28,7 @@ class BookInstanceAdmin(admin.ModelAdmin):
 
 
 class AuthorAdmin(admin.ModelAdmin):
-    list_display = ('first_name', 'last_name')
+    list_display = ('first_name', 'last_name', 'display_books')
     list_display_links = ('last_name', )
 
 
