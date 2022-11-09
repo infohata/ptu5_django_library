@@ -11,21 +11,31 @@ class Genre(models.Model):
 
 class Author(models.Model):
     first_name = models.CharField('first name', max_length=50)
+    # pagal nutylejima verbose yra pirma reiksme
     last_name = models.CharField('last name', max_length=50)
 
     def __str__(self) -> str:
         return f'{self.first_name} {self.last_name}'
 
+    def display_books(self) -> str:
+        return ', '.join(book.title for book in self.books.all())
+    display_books.short_description = 'books'
+
     # papildomos f-jos duomenu bazej
     class Meta:
         ordering = ['last_name', 'first_name']
+        verbose_name = 'Author'
+        verbose_name_plural = 'Authors'
 
 class Book(models.Model):
     title = models.CharField('title', max_length=255)
     summary = models.TextField('summary')
     isbn = models.CharField('ISBN', max_length=13, null=True, blank=True, 
         help_text='<a href="https://www.isbn-international.org/content/what-isbn" target="_blank">ISBN code</a> consisting of 13 symbols')
-    author = models.ForeignKey(Author, on_delete=models.SET_NULL, null=True, blank=True)
+    author = models.ForeignKey(
+        Author, on_delete=models.SET_NULL,
+        null=True, blank=True,
+        related_name='books',)
     # on_delete butina salyga
     # on_delete SET null reikia palikt null = truem, blank=true
     # protect neleis istrinti autoriaus jei jis tures knygu
@@ -36,6 +46,10 @@ class Book(models.Model):
 
     def __str__(self) -> str:
         return f"{self.author} - {self.title}"
+
+    def display_genre(self) -> str:
+        return ', '.join(genre.name for genre in self.genre.all()[:3])
+    display_genre.short_description = 'genre(s)'
 
 class BookInstance(models.Model):
     unique_id = models.UUIDField('unique ID', default=uuid.uuid4, editable=False)
