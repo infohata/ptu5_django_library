@@ -2,7 +2,7 @@
 {% block title %}{{ object }}{% endblock title %}
 {% block content %}
     <h1>{{ object.title }}</h1>
-    <h3>by {{ object.author }}</h3>
+    <h3>by {{ object.author.link }}</h3>
     {% if object.isbn %}
         <p>ISBN: {{ object.isbn }}</p>
     {% endif %}
