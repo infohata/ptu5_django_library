@@ -1,4 +1,65 @@
 body {
     background-color: rgb(28, 121, 168);
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-items: flex-start;
+    min-height: 100vh;
+    /* align-items: center; */
+}
+
+header, main ,footer {
+    min-width: fit-content;
+    /* telefonui, responsive friendly, jei netelpa i ekrana reiks zoomin ir tada scroolint */
+}
+
+header {
+    background-color: rgb(36, 128, 128);
+}
+
+header a {
+    display: inline-block;
+    color: #cef;
+    padding: 0.5rem;
+    text-decoration: none;
+}
+
+header a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+main {
+    flex-grow: 2;
+}
+
+.container {
+    background-color: rgba(255, 255, 255, 0.2);
+    max-width: 1200px;
+    min-width: 480px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+h1, h2, h3, p {
+    padding: 0.5rem 1rem;
+    margin: 0.5rem 0;
 
 }
+
+h1, h2, h3 {
+    background-color: rgb(44, 44, 133);
+    border-bottom: 13px solid rgb(36, 128, 128);
+}
+
+footer {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+footer .container {
+    display: flex;
+    align-content: stretch;
+    height: 50px;
+}
+
+/* po css pakeitimo ctrl + f5 */
