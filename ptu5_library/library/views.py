@@ -1,4 +1,5 @@
 from django.core.paginator import Paginator
+from django.db.models import Q
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView, DetailView
 from . models import Genre, Author, Book, BookInstance
@@ -40,6 +41,9 @@ class BookListView(ListView):
 
     def get_queryset(self):
         queryset = super().get_queryset()
+        search = self.request.GET.get('search')
+        if search:
+            queryset = queryset.filter(Q(title__icontains=search) | Q(summary__icontains=search))
         genre_id = self.request.GET.get('genre_id')
         if genre_id:
             queryset = queryset.filter(genre__id=genre_id)
