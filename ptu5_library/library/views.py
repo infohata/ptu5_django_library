@@ -1,3 +1,4 @@
+from django.core.paginator import Paginator
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView, DetailView
 from . models import Genre, Author, Book, BookInstance
@@ -23,7 +24,10 @@ def index(request):
 
 
 def authors(request):
-    return render(request, 'library/authors.html', {'authors': Author.objects.all()})
+    paginator = Paginator(Author.objects.all(), 5)
+    page_number = request.GET.get('page')
+    paged_authors = paginator.get_page(page_number)
+    return render(request, 'library/authors.html', {'authors': paged_authors })
 
 def author(request, author_id):
     return render(request, 'library/author.html', {'author': get_object_or_404(Author, id=author_id)})
@@ -31,6 +35,7 @@ def author(request, author_id):
 
 class BookListView(ListView):
     model = Book
+    paginate_by = 5
     template_name = 'library/book_list.html'
 
     def get_queryset(self):
