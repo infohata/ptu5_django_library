@@ -47,6 +47,7 @@ class Book(models.Model):
         related_name='books',
     )
     genre = models.ManyToManyField(Genre, help_text='Choose genre(s) for this book', verbose_name='genre(s)')
+    cover = models.ImageField("cover", upload_to='covers', blank=True, null=True)
 
     def __str__(self) -> str:
         return f"{self.author} - {self.title}"
