@@ -1,5 +1,7 @@
 from django.db import models
 import uuid
+from django.utils.html import format_html
+from django.urls import reverse
 
 # Create your models here.
 
@@ -8,6 +10,12 @@ class Genre(models.Model):
 
     def __str__(self) -> str:
         return self.name
+
+    def link_filtered_books(self):
+        link = reverse('books')+'?genre_id='+str(self.id)
+        # /books/?genre_id=1
+        print(link)
+        return format_html('<a class="genre" href="{link}">{name}</a>', link=link, name=self.name)
 
 class Author(models.Model):
     first_name = models.CharField('first name', max_length=50)
@@ -20,6 +28,14 @@ class Author(models.Model):
     def display_books(self) -> str:
         return ', '.join(book.title for book in self.books.all())
     display_books.short_description = 'books'
+
+    # autoriau self yra autoriaus if
+    # o ten knygos id buvo todel susikniso
+    # naudot taip {{ book.author.link }}
+    def link(self) -> str:
+        link = reverse('author', kwargs={'author_id': self.id})
+        return format_html('<a href="{link}">{author}</a>', link=link, author=self.__str__())
+
 
     # papildomos f-jos duomenu bazej
     class Meta:
@@ -36,6 +52,7 @@ class Book(models.Model):
         Author, on_delete=models.SET_NULL,
         null=True, blank=True,
         related_name='books',)
+    cover = models.ImageField('cover', upload_to='covers', blank=True, null=True)
     # on_delete butina salyga
     # on_delete SET null reikia palikt null = truem, blank=true
     # protect neleis istrinti autoriaus jei jis tures knygu
@@ -50,6 +67,13 @@ class Book(models.Model):
     def display_genre(self) -> str:
         return ', '.join(genre.name for genre in self.genre.all()[:3])
     display_genre.short_description = 'genre(s)'
+
+    def author_link(self) -> str:
+        link = reverse('author', kwargs={'author_id': self.author.id})
+        print(link)
+        print(type(link))
+        return format_html('<a href={link}>{author}</a>', link=link, author=self.author)
+        # naudot taip {{ book.author_link }}
 
 class BookInstance(models.Model):
     unique_id = models.UUIDField('unique ID', default=uuid.uuid4, editable=False)
