@@ -3,6 +3,7 @@ from django.db import models
 from django.utils.html import format_html
 from django.urls import reverse
 from django.utils.timezone import datetime
+from tinymce.models import HTMLField
 import uuid
 
 
@@ -40,7 +41,7 @@ class Author(models.Model):
 
 class Book(models.Model):
     title = models.CharField('title', max_length=255)
-    summary = models.TextField('summary')
+    summary = HTMLField('summary')
     isbn = models.CharField('ISBN', max_length=13, null=True, blank=True, 
         help_text='<a href="https://www.isbn-international.org/content/what-isbn" target="_blank">ISBN code</a> consisting of 13 symbols')
     author = models.ForeignKey(
