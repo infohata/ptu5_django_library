@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from .models import Genre, Author, Book, BookInstance
@@ -75,3 +76,13 @@ class BookDetailView(DetailView):
     template_name = 'library/book_detail.html'   
 
 # lazy loading su java 
+
+class UserBookListView(LoginRequiredMixin, ListView):
+    model = BookInstance
+    template_name = 'library/user_book_list.html'
+    paginate_by = 10
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        queryset = queryset.filter(reader=self.request.user).order_by('due_back')
+        return queryset
