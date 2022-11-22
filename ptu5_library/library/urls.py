@@ -16,4 +16,8 @@ urlpatterns = [
         views.UserBookInstanceUpdateView.as_view(),
         name='user_bookinstance_update'
     ),
+    path('return_book/<int:pk>/',
+        views.UserBookInstanceDeleteView.as_view(),
+        name='user_bookinstance_delete'
+    ),
 ]
