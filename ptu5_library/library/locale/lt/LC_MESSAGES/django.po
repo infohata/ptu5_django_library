@@ -1,0 +1,221 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-11-23 10:02+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n % 10 == 1 && (n % 100 > 19 || n % 100 < "
+"11) ? 0 : (n % 10 >= 2 && n % 10 <=9) && (n % 100 > 19 || n % 100 < 11) ? "
+"1 : n % 1 != 0 ? 2: 3);\n"
+
+#: library/models.py:12
+msgid "name"
+msgstr "pavadinimas"
+
+#: library/models.py:12
+msgid "Enter name of book genre"
+msgstr "Įveskite knygos žanro pavadinimą"
+
+#: library/models.py:23
+msgid "first name"
+msgstr "vardas"
+
+#: library/models.py:24
+msgid "last name"
+msgstr "pavardė"
+
+#: library/models.py:31
+msgid "books"
+msgstr "knygos"
+
+#: library/models.py:39
+msgid "author"
+msgstr "autorius"
+
+#: library/models.py:40
+msgid "authors"
+msgstr "autoriai"
+
+#: library/models.py:44
+msgid "title"
+msgstr "pavadinimas"
+
+#: library/models.py:45
+msgid "summary"
+msgstr "santrauka"
+
+#: library/models.py:47
+msgid ""
+"<a href=\"https://www.isbn-international.org/content/what-isbn\" target="
+"\"_blank\">ISBN code</a> consisting of 13 symbols"
+msgstr ""
+"13 simbolių <a href=\"https://www.isbn-international.org/content/what-isbn\" "
+"target=\"_blank\">ISBN kodas</a>"
+
+#: library/models.py:53
+msgid "Choose genre(s) for this book"
+msgstr "Pasirinkite žanrą(-us) knygai"
+
+#: library/models.py:53 library/models.py:61
+msgid "genre(s)"
+msgstr "žanras(-ai)"
+
+#: library/models.py:54
+msgid "cover"
+msgstr "viršelis"
+
+#: library/models.py:65
+msgid "unique ID"
+msgstr "unikalus ID"
+
+#: library/models.py:66 library/models.py:101
+msgid "book"
+msgstr "knyga"
+
+#: library/models.py:67
+msgid "due back"
+msgstr "bus gražinta"
+
+#: library/models.py:70
+msgid "managed"
+msgstr "administruojama"
+
+#: library/models.py:71
+msgid "taken"
+msgstr "paimta"
+
+#: library/models.py:72
+msgid "available"
+msgstr "prieinama"
+
+#: library/models.py:73
+msgid "reserved"
+msgstr "rezervuota"
+
+#: library/models.py:76
+msgid "status"
+msgstr "statusas"
+
+#: library/models.py:79 library/models.py:107
+msgid "reader"
+msgstr "skaitytojas"
+
+#: library/models.py:111
+msgid "created at"
+msgstr "sukurta"
+
+#: library/models.py:112
+msgid "content"
+msgstr "komentaras"
+
+#: library/templates/library/base.html:8
+#| msgid "PTU5 Library"
+msgid "Library"
+msgstr "Biblioteka"
+
+#: library/templates/library/base.html:18
+#| msgid "authors"
+msgid "Authors"
+msgstr "Autoriai"
+
+#: library/templates/library/base.html:19
+#| msgid "books"
+msgid "Books"
+msgstr "Knygos"
+
+#: library/templates/library/base.html:23
+#| msgid "books"
+msgid "My Books"
+msgstr "Mano Knygos"
+
+#: library/templates/library/base.html:25
+msgid "Admin"
+msgstr "Adminas"
+
+#: library/templates/library/base.html:27
+msgid "Logout"
+msgstr "Atsijunti"
+
+#: library/templates/library/base.html:29
+msgid "Register"
+msgstr "Registracija"
+
+#: library/templates/library/base.html:30
+msgid "Login"
+msgstr "Prisijungti"
+
+#: library/templates/library/index.html:3
+msgid "Welcome to"
+msgstr "Sveiki atvykę į"
+
+#: library/templates/library/index.html:5
+msgid "PTU5 Library"
+msgstr "PTU5 Biblioteka"
+
+#: library/templates/library/index.html:7
+msgid "Total books"
+msgstr "Viso knygų"
+
+#: library/templates/library/index.html:8
+msgid "Total book copies"
+msgstr "Viso knygų kopijų"
+
+#: library/templates/library/index.html:9
+msgid "Available book copies"
+msgstr "Prieinamų knygų kopijų"
+
+#: library/templates/library/index.html:10
+msgid "Distinct authors"
+msgstr "Autorių"
+
+#: library/templates/library/index.html:11
+msgid "Genres"
+msgstr "Žanrų"
+
+#: library/templates/library/index.html:12
+msgid "Visits this session"
+msgstr "Apsilankimų šioje sesijoje"
+
+#: library/views.py:85
+msgid "You're posting too much!"
+msgstr "Perdaug rašinėji, pailsėk..."
+
+#: library/views.py:92
+msgid "Your review has been posted!"
+msgstr "Jūsų apžvalga publikuota."
+
+#: library/views.py:122
+msgid "Book reserved."
+msgstr "Knyga rezervuota."
+
+#: library/views.py:136
+msgid "Book taken or extended."
+msgstr "Knyga paimta arba pratęsta."
+
+#: library/views.py:147
+msgid "Extend"
+msgstr "Pratęsti"
+
+#: library/views.py:149
+msgid "Take"
+msgstr "Paimti"
+
+#: library/views.py:165
+msgid "book returned and burned."
+msgstr "knyga grąžinta ir sudeginta."
+
+#: library/views.py:167
+msgid "book reservation canceled."
+msgstr "knygos rezervacija atšaukta."
