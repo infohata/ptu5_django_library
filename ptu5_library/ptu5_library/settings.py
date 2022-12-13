@@ -27,8 +27,12 @@ SECRET_KEY = local_settings.SECRET_KEY
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['ptu5.midonow.fi', 'localhost']
 
+USE_X_FORWARDED_HOST = True
+USE_X_FORWARDED_PORT = True
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+CSRF_TRUSTED_ORIGINS = ['https://ptu5.midonow.fi']
 
 # Application definition
 
@@ -127,9 +131,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
-STATIC_ROOT = BASE_DIR.joinpath('static')
+# STATIC_ROOT = BASE_DIR.joinpath('static')
+STATIC_ROOT = '/var/www/static'
 MEDIA_URL = 'media/'
-MEDIA_ROOT = BASE_DIR.joinpath('media')
+# MEDIA_ROOT = BASE_DIR.joinpath('media')
+MEDIA_ROOT = '/var/www/media'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field

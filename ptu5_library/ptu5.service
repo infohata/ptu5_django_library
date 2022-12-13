@@ -1,0 +1,13 @@
+[Unit]
+Description=PTU5 Library Django Gunicorn Service
+After=network.target
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=10
+User=kestas
+ExecStart=/usr/bin/bash /home/kestas/ptu5_django_library/ptu5_library/gunicorn-service.sh
+
+[Install]
+WantedBy=multi-user.target
